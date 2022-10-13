@@ -67,6 +67,4 @@ def dewarp_book(image):
         if len(approx) == 4:
             screenCnt = approx
             break
-    # apply the four point transform for book dewarping
-    warped = four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
-    return warped
+    return four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
