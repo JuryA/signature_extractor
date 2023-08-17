@@ -1,5 +1,6 @@
 #!/usr/bin/python
 """Python main file."""
+
 # -*- coding: utf-8 -*-
 # -----------------------------------------
 # author      : Ahmet Ozlu
@@ -22,7 +23,7 @@ try:
     cv2.imwrite("step 1 - page_dewarped.jpg", img)
     print("- step1 (cropping with the argins + book dewarpping): OK")
 except Exception as e:
-    print("type error: " + str(e))
+    print(f"type error: {str(e)}")
     print("ERROR IN CROPPING & BOOK DEWARPING! PLEASE CHECK LIGTHNING,"
           " SHADOW, ZOOM LEVEL AND ETC. OF YOUR INPUT BOOK IMAGE!")
 try:
@@ -32,7 +33,7 @@ try:
     cv2.imwrite("step 2 - signature_extracted.jpg", img)
     print("- step2 (signature extractor): OK")
 except Exception as e:
-    print("type error: " + str(e))
+    print(f"type error: {str(e)}")
     print("ERROR IN SIGNATURE EXTRACTION! PLEASE CHECK LIGTHNING, SHADOW,"
           " ZOOM LEVEL AND ETC. OF YOUR INPUT BOOK IMAGE!")
 try:
@@ -41,7 +42,7 @@ try:
     cv2.imwrite("step 3 - unsharpen_mask.jpg", img)
     print("- step3 (unsharpening mask): OK")
 except Exception as e:
-    print("type error: " + str(e))
+    print(f"type error: {str(e)}")
     print("ERROR IN BOOK UNSHARPING MASK! PLEASE CHECK LIGTHNING, SHADOW,"
           " ZOOM LEVEL AND ETC. OF YOUR INPUT BOOK IMAGE!")
 try:
@@ -50,7 +51,7 @@ try:
     cv2.imwrite("step 4 - color_correlated.jpg", img)
     print("- step4 (color correlation): OK")
 except Exception as e:
-    print("type error: " + str(e))
+    print(f"type error: {str(e)}")
     print("ERROR IN BOOK COLOR CORRELATION! PLEASE CHECK LIGTHNING, SHADOW,"
           " ZOOM LEVEL AND ETC. OF YOUR INPUT BOOK IMAGE!")
 

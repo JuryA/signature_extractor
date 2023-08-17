@@ -21,10 +21,9 @@ def funcBrightContrast(img, bright=0):
         The image whose brightness/contrast is adjusted.
 
     """
-    effect = apply_brightness_contrast(img, bright, contrast)
     # save the final output image
     # cv2.imwrite("./outputs/" + output_img, effect)
-    return effect
+    return apply_brightness_contrast(img, bright, contrast)
 
 
 def apply_brightness_contrast(input_img, brightness=255, contrast=127):

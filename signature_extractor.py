@@ -1,4 +1,5 @@
 """Extract signatures from an image."""
+
 # ----------------------------------------------
 # --- Author         : Ahmet Ozlu
 # --- Mail           : ahmetozlu93@gmail.com
@@ -49,25 +50,24 @@ for region in regionprops(blobs_labels):
         counter = counter + 1
     # print region.area # (for debugging)
     # take regions with large enough areas
-    if (region.area >= 250):
-        if (region.area > the_biggest_component):
-            the_biggest_component = region.area
+    if (region.area >= 250) and (region.area > the_biggest_component):
+        the_biggest_component = region.area
 
 average = (total_area/counter)
-print("the_biggest_component: " + str(the_biggest_component))
-print("average: " + str(average))
+print(f"the_biggest_component: {str(the_biggest_component)}")
+print(f"average: {average}")
 
 # experimental-based ratio calculation, modify it for your cases
 # a4_small_size_outliar_constant is used as a threshold value to remove connected outliar connected pixels
 # are smaller than a4_small_size_outliar_constant for A4 size scanned documents
 a4_small_size_outliar_constant = ((average/constant_parameter_1)*constant_parameter_2)+constant_parameter_3
-print("a4_small_size_outliar_constant: " + str(a4_small_size_outliar_constant))
+print(f"a4_small_size_outliar_constant: {str(a4_small_size_outliar_constant)}")
 
 # experimental-based ratio calculation, modify it for your cases
 # a4_big_size_outliar_constant is used as a threshold value to remove outliar connected pixels
 # are bigger than a4_big_size_outliar_constant for A4 size scanned documents
 a4_big_size_outliar_constant = a4_small_size_outliar_constant*constant_parameter_4
-print("a4_big_size_outliar_constant: " + str(a4_big_size_outliar_constant))
+print(f"a4_big_size_outliar_constant: {str(a4_big_size_outliar_constant)}")
 
 # remove the connected pixels are smaller than a4_small_size_outliar_constant
 pre_version = morphology.remove_small_objects(blobs_labels, a4_small_size_outliar_constant)
